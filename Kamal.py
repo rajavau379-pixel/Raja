@@ -21,7 +21,6 @@ def clear_screen():
 
 def print_banner():
     clear_screen()
-    # Big ASCII Logo for KAMAL
     print(
         f"""{GREEN}
 ██╗  ██╗ █████╗ ███╗   ███╗█████╗ ██╗     
@@ -35,6 +34,55 @@ def print_banner():
     print(f"{CYAN}============================================={RESET}")
     print(f"{YELLOW}   WELCOME TO {CHANNEL_NAME} TOOL{RESET}")
     print(f"   DEVELOPER : {AUTHOR_NAME}")
+    print(f"   VERSION   : {VERSION}")
+    print(f"{CYAN}============================================={RESET}\n")
+
+
+def run_tool():
+    print_banner()
+    print(f"{GREEN}[+] Starting tool process by {AUTHOR_NAME}...{RESET}")
+    print("[+] System check in progress...")
+    time.sleep(1.5)
+    print(f"\n{GREEN}[✔] Process completed successfully!{RESET}")
+    input(f"\n{YELLOW}Press [ENTER] to return to the main menu...{RESET}")
+
+
+def show_about():
+    print_banner()
+    print(f"Tool Name   : {CHANNEL_NAME} Main Tool")
+    print(f"Developer   : {AUTHOR_NAME}")
+    print("Description : Public GitHub Testing Script.")
+    input(f"\n{YELLOW}Press [ENTER] to return to the main menu...{RESET}")
+
+
+def main():
+    while True:
+        print_banner()
+        print(f" {GREEN}[01]{RESET} Start Tool")
+        print(f" {GREEN}[02]{RESET} About Developer")
+        print(f" {GREEN}[03]{RESET} Exit")
+        print(f"{CYAN}---------------------------------------------{RESET}")
+
+        choice = input(
+            f"\n{YELLOW}Select an option [01-03] : {RESET}"
+        ).strip()
+
+        if choice in ["1", "01"]:
+            run_tool()
+        elif choice in ["2", "02"]:
+            show_about()
+        elif choice in ["3", "03"]:
+            print(
+                f"\n{RED}Thank you for using the tool by {AUTHOR_NAME}!{RESET}\n"
+            )
+            sys.exit()
+        else:
+            print(f"\n{RED}[!] Invalid Selection! Try again.{RESET}")
+            time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()    print(f"   DEVELOPER : {AUTHOR_NAME}")
     print(f"   VERSION   : {VERSION}")
     print(f"{CYAN}============================================={RESET}\n")
 
