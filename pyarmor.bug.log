@@ -1,0 +1,49 @@
+[BUG]: dlopen failed: cannot locate symbol "PyFloat_Type" referenced by "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/core/android/aarch64/pytransform3.so"...
+
+## Command Line
+/data/data/com.termux/files/usr/bin/pyarmor gen kamal.py
+
+## Environments
+Python 3.13.13
+Pyarmor 9.2.7 (trial), 000000, non-profits
+Platform android.aarch64
+Native android.aarch64
+Home /data/data/com.termux/files/home/.pyarmor
+
+## Traceback
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/core/__init__.py", line 67, in _import_pytransform3
+    return __import__(
+        'pytransform3', globals=globals(), locals=locals(),
+        fromlist=('__pyarmor__',), level=1
+    )
+ModuleNotFoundError: No module named 'pyarmor.cli.core.pytransform3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/__main__.py", line 804, in main
+    main_entry(sys.argv[1:])
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/__main__.py", line 789, in main_entry
+    return args.func(ctx, args)
+           ~~~~~~~~~^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/__main__.py", line 248, in cmd_gen
+    builder.process(options)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/generate.py", line 180, in process
+    Pytransform3.pre_build(self.ctx)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/core/__init__.py", line 109, in pre_build
+    m = Pytransform3.init(ctx)
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/core/__init__.py", line 87, in init
+    Pytransform3._pytransform3 = m = _import_pytransform3()
+                                     ~~~~~~~~~~~~~~~~~~~~^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/core/__init__.py", line 74, in _import_pytransform3
+    return __import__(
+        modname, globals=globals(), locals=locals(),
+        fromlist=('__pyarmor__',), level=1
+    )
+ImportError: dlopen failed: cannot locate symbol "PyFloat_Type" referenced by "/data/data/com.termux/files/usr/lib/python3.13/site-packages/pyarmor/cli/core/android/aarch64/pytransform3.so"...
+
+
